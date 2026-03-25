@@ -5,7 +5,8 @@ COPY coordinator-server/ .
 RUN mvn clean package -DskipTests
 
 # Bước 2: Chạy ứng dụng
-FROM openjdk:17-jdk-slim
+# Thay đổi dòng số 8 thành:
+FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
